@@ -1,4 +1,5 @@
 # impress-templates
-Examples of http://impress.github.io/impress.js
 
-Demo https://viigit.github.io/impress-templates/cube/
+More Examples of https://github.com/impress/impress.js
+
+1. Demo https://viigit.github.io/impress-templates/cube/
