@@ -1,0 +1,121 @@
+/* Body */
+
+body {
+    font-family: 'PT Sans', sans-serif, helvetica;
+    min-height: 740px;
+    background: rgb(103, 95, 76);
+}
+
+/* CUBE */
+
+.cube{
+	width:800px;
+	height:400px;
+}
+
+.cube > div{
+    position: absolute;
+    width:400px;
+	height:400px;
+	box-shadow: inset 0 0 200px rgba(144, 142, 128, 0.5);
+	font-size: 60px;
+	text-align: center;
+	line-height: 0px;
+	color: rgba(0, 0, 0, 0.2);
+    background: rgba(144, 142, 128, 0.1);
+}
+
+.future > .cube > div{
+	box-shadow: inset 0 0 200px rgba(92, 90, 82, 0.5);
+}
+
+.future > div > img{
+    opacity: 0.2;
+}
+.cube > div:nth-child(2){
+	width:380px;
+	height:360px;
+    left: 400px;
+	font-size: 30px;
+	text-align: left;
+	line-height: 40px;
+    padding-left:  20px;
+    padding-top: 40px;
+    color: rgba(0, 0, 0, 0.1);
+}
+
+.cube > div > p:nth-child(1){
+	font-size: 100px;
+}
+
+.active.present {
+	color: rgba(255,255,255, 0.5);
+}
+.active.past {
+    color: rgba(255,255,255, 0.5);
+}
+
+.active.present > .cube > div{
+	position: absolute;
+	color: rgba(255, 255, 255, 1);
+}
+
+.past > .cube > div{
+	color: rgba(255, 255, 255, 1);
+}
+
+.past > .cube{
+    transform: translateZ(0px);
+    transition: transform 1s;  
+	background: rgba(144, 142, 128, 0.6);
+}
+
+.active.present > .cube{
+	background: rgb(255, 0, 0);
+    transform: translateZ(45px);
+    transition: transform 2s;  
+}
+
+.cube-shadow, .cube-shadow-after{
+    height: 30px;
+}
+
+.active.present > .cube-shadow{
+    background-image: -webkit-radial-gradient(center bottom, 600px 30px,rgba(0, 0, 0, 0.5) 0%,rgba(0, 0, 0, 0) 50%);
+    
+    transform: translateZ(40px);
+    transition: transform 2s;
+}
+
+
+.active.present > .cube-shadow-after{
+    background-image: -webkit-radial-gradient(center top, 600px 30px,rgba(0, 0, 0, 0.5) 0%,rgba(0, 0, 0, 0) 50%);
+    
+    transform: translateZ(40px);
+    transition: transform 2s;  
+}
+
+
+/*
+    And as the last thing there is a workaround for quite strange bug.
+    It happens a lot in Chrome. I don't remember if I've seen it in Firefox.
+
+    Sometimes the element positioned in 3D (especially when it's moved back
+    along Z axis) is not clickable, because it falls 'behind' the <body>
+    element.
+
+    To prevent this, I decided to make <body> non clickable by setting
+    pointer-events property to `none` value.
+    Value if this property is inherited, so to make everything else clickable
+    I bring it back on the #impress element.
+
+    If you want to know more about `pointer-events` here are some docs:
+    https://developer.mozilla.org/en/CSS/pointer-events
+
+    There is one very important thing to notice about this workaround - it makes
+    everything 'unclickable' except what's in #impress element.
+
+    So use it wisely ... or don't use at all.
+*/
+.impress-enabled          { pointer-events: none }
+.impress-enabled #impress { pointer-events: auto }

@@ -10,13 +10,16 @@
     
     <meta name="author" content="Erwin Waltenspühl" />
 
-    <link href="http://fonts.googleapis.com/css?family=Open+Sans:regular,semibold,italic,italicsemibold|PT+Sans:400,700,400italic,700italic|PT+Serif:400,700,400italic,700italic" rel="stylesheet" />
 
-    <link href="cube.css" rel="stylesheet" />
+    <link href="hint.css" rel="stylesheet" />
+    <link href="flat.css" rel="stylesheet" />
     
     <link rel="apple-touch-icon" href="favicon.png" />
     <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
     <link rel="icon" href="favicon.ico" type="image/x-icon">
+    
+    <script src="../lib/jquery-1.8.0.min.js"></script>    
+    
     
 </head>
 
@@ -33,74 +36,91 @@
 
 <div id="impress">
     
-    <div id="cube-front" class="step perspective" data-z="400" >    
+    <div id="overview1" class="step" data-x="0" data-y="0" data-z="0"
+         data-scale="3" data-rotate-x="" data-rotate-y="" data-rotate-z="0">
+    </div>
+    
+    <div id="cube-front" class="step perspective" data-x="-400" data-y="-800">    
         <div class="cube" >
             <div>
-                FRONT
+                <p>01</p>
+                <p>ONE</p>
+            </div>
+            <div>
+                <ul>
+                <li>lorem ipsum</li>
+                <li>lorem ipsum</li>
+                </ul>
             </div>
         </div>
     </div>
     
-    <div id="cube-left" class="step perspective" data-rotate-y="90" data-x="200" data-z="200" >    
+    <div id="cube-left" class="step perspective" data-x="-600" data-y="-400">    
         <div class="cube" >
             <div>
-                LEFT
+                <p>02</p>
+                <p>TWO</p>
+            </div>
+            <div>
+                <ul>
+                <li>lorem ipsum</li>
+                <li>lorem ipsum</li>
+                </ul>
             </div>
         </div>
     </div>
     
-    <div id="cube-top" class="step perspective" data-rotate-x="90" data-y="-200" data-z="200" >    
+    <div id="cube-top" class="step perspective" data-x="-200" data-y="0" >    
         <div class="cube" >
             <div>
-                TOP
+                <p>03</p>
+                <p>Three</p>
             </div>  
+            <div>
+                <ul>
+                <li>lorem ipsum</li>
+                <li>lorem ipsum</li>
+                </ul>
+            </div>
         </div>
     </div>
     
-    <div id="cube-back" class="step perspective" data-rotate-y="180" data-x="0" data-z="0" >    
+    <div id="cube-back" class="step perspective" data-x="0" data-y="400" >    
         <div class="cube" >
             <div>
-                BACK
+                <p>04</p>
+                <p>Four</p>
             </div>
-        </div>
-    </div>
-    
-    <div id="cube-right" class="step perspective" data-rotate-y="270" data-x="-200" data-z="200" >    
-        <div class="cube" >
             <div>
-                RIGHT
+                <ul>
+                <li>lorem ipsum</li>
+                <li>lorem ipsum</li>
+                </ul>
             </div>
         </div>
     </div>
     
-    <div id="cube-bottom" class="step perspective" data-rotate-x="-90" data-y="200" data-z="200" >    
+    
+    <div id="cube-bottom" class="step perspective" data-x="800" data-y="-200" >    
         <div class="cube" >
-            <div class="opaque">
-                <img src="image.png" width="400" height="400" style="" />
-                <span class="content" style="" >
-                    BOTTOM
-                </span>
+            
+            <div>
+                <p>05</p>
+                <p>Five</p>
             </div>
+                
+            
+            <img src="image.png" width="400" height="400" style="position:absolute; left:400px;" />
+                                
+            
         </div>
     </div>
     
-    <div id="overviewright" class="step" data-x="0" data-y="0" data-rotate-x="-90" data-rotate-y="" data-rotate-z="0">
-    </div>    
-    
-    <div id="overview2" class="step" data-x="0" data-y="0" data-scale="-2" data-rotate-x="" data-rotate-y="" data-rotate-z="0">
-    </div>
-    
-    <div id="overview3" class="step" data-x="0" data-y="0" data-scale="4" data-rotate-x="45" data-rotate-y="45" data-rotate-z="45">
-    </div>
-    
-    
-    <div id="overview" class="step" data-x="300" data-y="500" data-scale="0.2" data-rotate-x="60" data-rotate-y="40" data-rotate-z="45">
-    </div>
+
 
 </div>
 
 <!--
-    
     Hint is not related to impress.js in any way.
     
     But it can show you how to use impress.js features in creative way.
@@ -148,8 +168,20 @@ if ("ontouchstart" in document.documentElement) {
     
 -->
 <script src="../lib/impress-min.js"></script>
-<script>impress().init();</script>
 
+<!-- add some shadow elements to the active slide 
+-->
+<script>
+    
+  
+    var cubes = $( ".cube" );
+    cubes.before( "<div class='cube-shadow'></div>" );
+    cubes.after( "<div class='cube-shadow-after'></div>" );
+            
+   
+</script>
+
+    
 <!--
     
     The `impress()` function also gives you access to the API that controls the presentation.
@@ -173,7 +205,10 @@ if ("ontouchstart" in document.documentElement) {
     For some example uses of this API check the last part of the source of impress.js where the API
     is used in event handlers.
     
--->
+-->    
+<script>impress().init();</script>
+
+
 
 
 </body>
